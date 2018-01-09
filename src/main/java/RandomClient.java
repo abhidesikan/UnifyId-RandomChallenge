@@ -36,7 +36,8 @@ public class RandomClient {
 	public static void main(String[] args) throws Exception {
 
 		SecureRandom random = new SecureRandom();
-		byte[] bytes = random.generateSeed(Integer.parseInt(getRandomNumber(1, 1, 10, 1, 10, "plain", "new")));
+		byte[] bytes = random.generateSeed(Integer.parseInt(getRandomNumber(1, 1, 1000000, 1, 10, "plain", "new")));
+		random = new SecureRandom(bytes);
 
 		KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
 		keyPairGenerator.initialize(1024, random);
