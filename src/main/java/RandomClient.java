@@ -11,6 +11,18 @@ public class RandomClient {
 
 	private static String randomUrl = "https://www.random.org/integers/?";
 
+	/**
+	 *
+	 * @param num number of integers
+	 * @param min lower bound of integers
+	 * @param max upper bound of integers
+	 * @param col number of columns in which integers will be arranged
+	 * @param base base for numbers
+	 * @param format html/plain
+	 * @param rnd randmoization used to generate numbers
+	 * @return
+	 * @throws Exception
+	 */
 	public static String getRandomNumber(Integer num, Integer min, Integer max, Integer col, int base, String format, String rnd) throws Exception {
 
 		randomUrl = randomUrl + "num=" + num + "&min=" + min + "&max=" + max + "&col=" + col + "&base=" + base
