@@ -47,16 +47,21 @@ public class RandomClient {
 
 	public static void main(String[] args) throws Exception {
 
+		//create a secure random number generator
 		SecureRandom random = new SecureRandom();
+		//get seed bytes from random input source
 		byte[] bytes = random.generateSeed(Integer.parseInt(getRandomNumber(1, 1, 1000000, 1, 10, "plain", "new")));
+		//initialize SecureRandom constructor with seed bytes
 		random = new SecureRandom(bytes);
 
+		//Generate key pair generator using secure random as source of randomness
 		KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
 		keyPairGenerator.initialize(1024, random);
 		KeyPair pair = keyPairGenerator.generateKeyPair();
 		PrivateKey priv = pair.getPrivate();
 		PublicKey pub = pair.getPublic();
 
+		//Output private and public key
 		System.out.println(priv);
 		System.out.println(pub);
 	}
